@@ -40,6 +40,8 @@ class DatabaseSeeder extends Seeder
 
         $news_img = ['3373643.jpg', '3373630.jpg', '3284554.png'];
 
+        $order_statuses = ['Корзина', 'В процессе', 'Завершен'];
+
         DB::table('users')->insert([
           'last_name' => 'Ogami',
           'first_name' => 'Koga',
@@ -63,6 +65,12 @@ class DatabaseSeeder extends Seeder
         foreach ($tastes as $taste) {
           DB::table('tea_tastes')->insert([
               'name' => $taste,
+          ]);
+        }
+
+        foreach ($order_statuses as $status) {
+          DB::table('order_statuses')->insert([
+              'name' => $status,
           ]);
         }
 

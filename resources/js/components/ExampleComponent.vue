@@ -1,5 +1,5 @@
 <template>
-  <button type="button" v-on:click="addToCart">Купить</button>
+  <button class="btn btn-sm green darken-1 white-text" type="button" v-on:click="addToCart">Купить</button>
 </template>
 
 <script>

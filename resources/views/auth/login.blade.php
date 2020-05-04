@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2 class="text-center">{{ __('Войти') }}</h2>
+<h2 class="text-center nav-headers-links mt-5">{{ __('Войти') }}</h2>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-7 col-lg-5">

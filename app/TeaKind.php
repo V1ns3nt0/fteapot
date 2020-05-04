@@ -12,4 +12,9 @@ class TeaKind extends Model
     public static function get_kinds() {
       return self::all();
     }
+
+    public static function get_kind_name($id) {
+      $kind = self::find($id);
+      return $kind->name;
+    }
 }

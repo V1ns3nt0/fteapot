@@ -16,11 +16,14 @@ use App\Category;
 use App\Article;
 use App\News;
 use App\User;
+use App\Order;
 
 class AdminController extends Controller
 {
     public function index() {
-      return view('admin');
+      $orders = Order::get_latest_orders();
+      $items = Order::get_orders_items($orders);
+      return view('admin', ['orders' => $orders, 'items' => $items]);
     }
 
     public function tea() {
@@ -125,5 +128,16 @@ class AdminController extends Controller
       User::new_staff($request);
       return redirect('/admin/staff');
 
+    }
+
+    public function orders() {
+      $orders = Order::get_all_orders();
+      $items = Order::get_orders_items($orders);
+      return view('admin_orders', ['orders' => $orders, 'items' => $items]);
+    }
+
+    public function change_order(Order $order) {
+      Order::change_order_status($order);
+      return redirect()->back();
     }
 }

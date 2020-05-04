@@ -54,7 +54,7 @@ class User extends Authenticatable
 
     public static function get_user_orders() {
       $cuser = Auth::user()->id;
-      return self::find($cuser)->order()->whereIn('status', ['В процессе', 'Завершен'])->get();
+      return self::find($cuser)->order()->whereIn('status', [2, 3])->paginate(8);
     }
 
     public static function edit_user_data($request) {

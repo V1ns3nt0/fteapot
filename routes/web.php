@@ -24,6 +24,7 @@ Route::get('/catalog/{product}', 'ProductController@single_product');
 Route::get('/library', 'ArticleController@index');
 Route::get('/library/{article}', 'ArticleController@single_article');
 Route::get('/home/orders', 'HomeController@user_orders');
+Route::post('/home/orders/change/{order}', 'HomeController@change_order');
 Route::get('/home/edit', 'HomeController@edit_index');
 Route::post('/home/edit/data', 'HomeController@edit_data');
 Route::post('/home/edit/passwords', 'HomeController@edit_passwords');
@@ -63,4 +64,16 @@ Route::middleware('admin')->group(function() {
     Route::get('/admin/staff/add', 'AdminController@open_add_staff');
     Route::post('/admin/staff/add', 'AdminController@add_staff');
 
+    Route::get('/admin/orders', 'AdminController@orders');
+    Route::post('/admin/orders/change/{order}', 'AdminController@change_order');
+
 });
+
+
+//Sitemap
+
+Route::get('/sitemap.xml', 'SitemapController@index')->name('sitemap.xml');
+Route::get('/sitemap.xml/tea', 'SitemapController@tea');
+Route::get('/sitemap.xml/articles', 'SitemapController@articles');
+Route::get('/sitemap.xml/about', 'SitemapController@about');
+Route::get('/sitemap.xml/delivery', 'SitemapController@delivery');

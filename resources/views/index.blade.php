@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container flex-center" >
+<div class="container flex-center mt-5" >
     <!-- <div class="col-lg-6 col-md-6 p-0">
         <img src="{{ asset('storage/img/bannerText.jpg') }}" alt="Banner pic" class="img-fluid">
     </div>
@@ -48,26 +48,26 @@
   <!--/.Controls-->
 </div>
 </div>
-<section class="text-center mb-4">
-    <h2 class="text-center headFont">Новинки</h2>
+<section class="text-center mb-4 mg-70">
+    <h2 class="text-center nav-headers-links mb-4">Новинки</h2>
     <div class="row mx-auto">
       @foreach ($products as $product)
         <div class="col-lg-3 col-md-6 mb-4">
-            <div class="card" style="min-height:404px;">
+            <div class="card" style="min-height:421px;">
                 <!-- <div class="pictureTea align-self-center" style='background: url("{{$product->img_path}}") 50% 50% no-repeat; ; max-width:20em; max-height:20em;'></div> -->
                 <div class="align-self-center"> <img src="{{ asset($product->path) }}" alt="tea photo" style="max-width:230px; max-height:190px;"> </div>
                 <div class="card-body">
-                    <h4 class="card-title"><a href="/catalog/{{$product->id}}" class="nav-link green-text">{{ $product->name }}</a></h4>
-                    <p class="card-text">{{ $product->card_description }}</p>
+                    <h4 class="card-title"><a href="/catalog/{{$product->id}}" class="nav-link green-text nav-headers-links fnts-24">{{ $product->name }}</a></h4>
+                    <p class="card-text font-italic">{{ $product->card_description }}</p>
                     <div class="flex-center mb-2">
                         <div class="mr-auto ml-3">
-                            <p class="card-subtitle priceCard">{{$product->	price}} руб</p>
-                            <p class="card-text m-0">100грамм</p>
+                            <p class="card-subtitle fnts-24">{{$product->	price}} руб</p>
+                            <p class="card-text m-0">100 грамм</p>
                         </div>
                         @auth
                         <form class="d-flex" method="POST" action="/cart/add/{{$product->id}}">
                           @csrf
-                          <button type="submit">Купить</button>
+                          <button class="btn btn-sm green darken-1 white-text" type="submit">Купить</button>
                         </form>
                         @endauth
                         @guest

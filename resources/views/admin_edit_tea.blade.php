@@ -3,7 +3,7 @@
 @section('content')
 <form class="p-5 col-lg-6 mx-auto" method="POST" action="/admin/tea/edit/{{ $product->id }}" enctype="multipart/form-data">
     @csrf
-    <p class="h4 mb-4 text-center">Редактировать чай</p>
+    <p class="h2 mb-4 text-center nav-headers-links">Редактировать чай</p>
 
 
     <select class="browser-default custom-select mb-2 @error('teaCategory') is-invalid @enderror" id="teaCategory" name="teaCategory">
@@ -21,7 +21,7 @@
     <input class="form-control mb-2 @error('teaName') is-invalid @enderror" id="teaName" value="{{ $product->name }}" name="teaName" type="text" placeholder="Название">
     @error('teaName')
         <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
+          <strong>{{ $message }}</strong>
         </span>
     @enderror
 
@@ -45,21 +45,21 @@
     </select>
     @error('teaTaste')
         <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
+          <strong>{{ $message }}</strong>
         </span>
     @enderror
 
     <textarea class="form-control mb-2 @error('cardDescription') is-invalid @enderror" id="cardDescription" value="" name="cardDescription" placeholder="Карточное описание">{{ $product->card_description }}</textarea>
     @error('cardDescription')
         <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
+          <strong>{{ $message }}</strong>
         </span>
     @enderror
 
     <textarea class="form-control mb-2 @error('fullDescription') is-invalid @enderror" id="fullDescription" value="" name="fullDescription" placeholder="Полное описание">{{ $product->full_description }}</textarea>
     @error('fullDescription')
         <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
+          <strong>{{ $message }}</strong>
         </span>
     @enderror
 
@@ -85,6 +85,6 @@
         @enderror
     </div>
 
-    <button class="btn btn-green btn-block" type="submit">Save</button>
+    <button class="btn btn-green btn-block" type="submit">Сохранить</button>
 </form>
 @endsection

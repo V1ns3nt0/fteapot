@@ -12,9 +12,9 @@
       <td class="align-middle">{{ productItem.price }}&#x20bd;</td>
       <td class="align-middle">
         <div class="d-flex">
-            <button type="button" v-on:click="decreaseQuantity">-</button>
+            <button type="button" class="btn btn-green btn-sm" v-on:click="decreaseQuantity">-</button>
           {{ productItem.quantity }}
-            <button type="button" v-on:click="increaseQuantity">+</button>
+            <button type="button" class="btn btn-green btn-sm" v-on:click="increaseQuantity">+</button>
         </div>
       </td>
       <td class="font-weight-bold align-middle">

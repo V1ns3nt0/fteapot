@@ -1,0 +1,38 @@
+body {
+    font-family: "Spectral", sans-serif;
+    background-color: #f8f8f8;
+}
+
+.nav-headers-links {
+  font-family: Philosopher;
+}
+
+.fnts-24 {
+  font-size: 24px;
+}
+.fnts-16 {
+  font-size: 16px;
+}
+
+.fnts-20 {
+  font-size: 20px;
+}
+
+.mg-70 {
+  margin-top: 70px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    background: darkseagreen;
+}
+input[type=range]::-moz-range-thumb {
+    background: darkseagreen;
+}
+input[type=range]::-ms-thumb {
+    background: darkseagreen;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: darkseagreen;
+  color: white;
+}

@@ -3,7 +3,7 @@
 @section('content')
 <form class="p-5 col-lg-6 mx-auto" method="POST" action="/admin/news/add" enctype="multipart/form-data">
     @csrf
-    <p class="h4 mb-4 text-center">Добавить банер</p>
+    <p class="h2 mb-4 text-center nav-headers-links">Добавить банер</p>
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -20,6 +20,6 @@
         @enderror
     </div>
 
-    <button class="btn btn-green btn-block" type="submit">Save</button>
+    <button class="btn btn-green btn-block" type="submit">Добавить</button>
 </form>
 @endsection

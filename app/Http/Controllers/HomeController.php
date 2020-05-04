@@ -62,4 +62,9 @@ class HomeController extends Controller
       User::users_card($request);
     }
 
+    public function change_order(Order $order) {
+      Order::change_order_status($order);
+      return redirect()->back();
+    }
+
 }

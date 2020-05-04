@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<h2 class="text-center">О нас</h2>
-<div class="row mx-auto">
+<h2 class="text-center nav-headers-links mt-5">О нас</h2>
+<div class="row mx-auto mb-5">
     <div class="col-lg-6 col-md-8 mb-4 mb-md-0 mt-5 mx-auto">
         <p class="text-muted mr-5 ml-5 mt-4">"Уголок забытого чайника" - достаточно молодая компания. На сегодня
             открыто только 2 офлайн-магазина в Томске, где всегда рады посетителям и гостям. Все наши сотрудники

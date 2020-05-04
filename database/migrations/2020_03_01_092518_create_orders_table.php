@@ -27,11 +27,12 @@ class CreateOrdersTable extends Migration
             $table->string('postal_code', 6)->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->float('price')->nullable();
-            $table->string('status', 25)->default('Корзина');
+            $table->unsignedBigInteger('status');
             $table->timestamps();
 
             // $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('status')->references('id')->on('order_statuses')->onDelete('cascade');
         });
     }
 

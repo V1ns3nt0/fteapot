@@ -12,4 +12,9 @@ class TeaTaste extends Model
   public static function get_tastes() {
     return self::all();
   }
+
+  public static function get_taste_name($id) {
+    $taste = self::find($id);
+    return $taste->name;
+  }
 }

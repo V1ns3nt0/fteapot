@@ -20,6 +20,17 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+$(document).ready(function() {
+
+const $valueSpan = $('.valueSpan2');
+const $value = $('#customRange11');
+$valueSpan.html($value.val());
+$value.on('input change', () => {
+
+  $valueSpan.html($value.val());
+});
+});
+
 function containsObject(obj, arr) {
     let i;
     for (i = 0; i < arr.length; i++) {
@@ -30,6 +41,7 @@ function containsObject(obj, arr) {
 
     return false;
 }
+
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('cart-item', require('./components/cartItem.vue').default);

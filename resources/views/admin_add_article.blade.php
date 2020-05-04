@@ -3,7 +3,7 @@
 @section('content')
 <form class="p-5 col-lg-6 mx-auto" method="POST" action="/admin/articles/add" enctype="multipart/form-data">
     @csrf
-    <p class="h4 mb-4 text-center">Добавить статью</p>
+    <p class="h2 mb-4 text-center nav-headers-links">Добавить статью</p>
 
     <input class="form-control mb-2 @error('title') is-invalid @enderror" id="title" value="{{ old('title') }}" name="title" type="text" placeholder="Название">
     @error('title')
@@ -41,6 +41,6 @@
         @enderror
     </div>
 
-    <button class="btn btn-green btn-block" type="submit">Save</button>
+    <button class="btn btn-green btn-block" type="submit">Добавить</button>
 </form>
 @endsection

@@ -2,11 +2,11 @@
 
 @section('content')
 
-<h2 class="text-center">Мой профиль</h2>
+<h2 class="text-center nav-headers-links mt-5">Мой профиль</h2>
 <div class="container mt-5">
     <div class="row mx-auto">
         <div class="col-lg-6 col-md-6 p-0">
-            <h4 class="text-center mt-2">Персональные данные</h4>
+            <h4 class="text-center nav-headers-links mt-2">Персональные данные</h4>
             <form method="POST" action="/home/edit/data">
               @csrf
                 <div class="row justify-content-center">
@@ -50,7 +50,7 @@
             </form>
     </div>
     <div class="col-lg-6 col-md-6 p-0">
-        <h4 class="text-center mt-2">Сменить пароль</h4>
+        <h4 class="text-center nav-headers-links mt-2">Сменить пароль</h4>
         <form method="POST" action="/home/edit/passwords">
           @csrf
           <div class="row justify-content-center">

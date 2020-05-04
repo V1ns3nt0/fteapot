@@ -18,12 +18,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 </head>
 <body style="max-width:1200px;" class="mx-auto">
     <div id="app">
         <nav class="mb-1 navbar navbar-expand-lg navbar-dark green darken-1">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand nav-headers-links" style="fontSize:20px;" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -33,10 +34,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                      <a class="nav-link" href="/">{{ __('Вернуться на сайт') }}</a>
+                      <a class="nav-link nav-headers-links fnts-16" href="/">{{ __('Вернуться на сайт') }}</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="/admin">{{ __('Админ панель') }}</a>
+                      <a class="nav-link nav-headers-links fnts-16" href="/admin">{{ __('Админ панель') }}</a>
                     </li>
                   </ul>
                 </div>

@@ -10,3 +10,29 @@
 
 @import '~mdbootstrap/scss/mdb-free';
 @import '~mdbootstrap/scss/mdb-lite-free';
+
+@font-face {
+        font-family:'Philosopher';
+        src: url('/fonts/Philosopher-Regular.ttf') format('ttf');
+        font-style: normal;
+        font-weight: normal;
+}
+
+@font-face {
+        font-family:'Spectral';
+        src: url('/fonts/Spectral-Regular.ttf') format('ttf');
+        font-style: normal;
+        font-weight: normal;
+}
+// @font-face {
+//         font-family:'Spectral';
+//         src: url('/fonts/Spectral-Italic.ttf') format('ttf');
+//         font-style: italic;
+//         font-weight: normal;
+// }
+// @font-face {
+//         font-family:'Spectral';
+//         src: url('/fonts/Spectral-Bold.ttf') format('ttf');
+//         font-style: normal;
+//         font-weight: bold;
+// }

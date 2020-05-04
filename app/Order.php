@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Cookie\CookieJar;
 use App\Cart;
 use App\User;
+use Carbon\Carbon;
 
 class Order extends Model
 {
@@ -24,7 +25,7 @@ class Order extends Model
   }
 
   public static function store_item($product) {
-    $ord = self::where('user_id', Auth::user()->id)->where('status', 'Корзина')->first();
+    $ord = self::where('user_id', Auth::user()->id)->where('status', 1)->first();
     // dd($ord);
     if ($ord) {
       // dd($ord->orderItems);
@@ -43,7 +44,7 @@ class Order extends Model
         ]);
       }
     } else {
-      $ord = self::create(['user_id' => Auth::user()->id]);
+      $ord = self::create(['user_id' => Auth::user()->id, 'status' => 1]);
       return $ord->orderItems()->create([
         'product_id' => $product->id,
         'quantity' => 1,
@@ -58,7 +59,7 @@ class Order extends Model
     if(Auth::user() !== null) {
       $cuser = Auth::user()->id;
       $gprice = self::get_general_price();
-      $ord = self::where('user_id', Auth::user()->id)->where('status', 'Корзина')->first();
+      $ord = self::where('user_id', Auth::user()->id)->where('status', 1)->first();
       return $ord->update([
         'last_name'=>$request->last_name,
         'first_name'=>$request->first_name,
@@ -70,7 +71,7 @@ class Order extends Model
         'flat'=>$request->flat,
         'postal_code'=>$request->postal_code,
         'price'=>$gprice,
-        'status'=> 'В процессе',
+        'status'=> 2,
       ]);
     } else {
       $cuser = null;
@@ -88,7 +89,7 @@ class Order extends Model
         'postal_code'=>$request->postal_code,
         'user_id'=>$cuser,
         'price'=>$gprice,
-        'status'=> 'В процессе',
+        'status'=> 2,
       ]);
 
       foreach ($cartItems as $it) {
@@ -121,13 +122,14 @@ class Order extends Model
   }
 
   public static function get_cart() {
-    $ord = self::where('user_id', Auth::user()->id)->where('status', 'Корзина')->first();
+    $ord = self::where('user_id', Auth::user()->id)->where('status', 1)->first();
     if ($ord) {
       $arr = [];
       $items = $ord->orderItems;
       foreach ($items as $item) {
         $arr[]=$item->product;
       }
+
       return [$items, $arr];
     } else {
       return null;
@@ -149,5 +151,17 @@ class Order extends Model
       }
       return $price;
     }
+  }
+
+  public static function change_order_status($order) {
+    return $order->update(['status' => 3]);
+  }
+
+  public static function get_latest_orders() {
+    return self::whereIn('status', [2, 3])->whereDate('updated_at', Carbon::today())->limit(8)->get();
+  }
+
+  public static function get_all_orders() {
+    return self::whereIn('status', [2, 3])->paginate(8);
   }
 }
